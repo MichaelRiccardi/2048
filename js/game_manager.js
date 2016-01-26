@@ -28,7 +28,11 @@ GameManager.prototype.keepPlaying = function () {
 
 // Return true if the game is lost, or has won and the user hasn't kept playing
 GameManager.prototype.isGameTerminated = function () {
-  return this.over || (this.won && !this.keepPlaying);
+  if (this.over || (this.won && !this.keepPlaying)) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 // Set up the game
@@ -68,7 +72,12 @@ GameManager.prototype.addStartTiles = function () {
 // Adds a tile in a random position
 GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
-    var value = Math.random() < 0.9 ? 2 : 4;
+  	var r = Math.random()
+  	var value = 2;
+  	if(r>0.95) { value = 0.5 }
+  	else if(r>0.9) { value = 1 }
+  	else if(r>0.8) { value = 4 }
+    //var value = Math.random() < 0.9 ? 2 : 4;
     var tile = new Tile(this.grid.randomAvailableCell(), value);
 
     this.grid.insertTile(tile);
@@ -79,6 +88,10 @@ GameManager.prototype.addRandomTile = function () {
 GameManager.prototype.actuate = function () {
   if (this.storageManager.getBestScore() < this.score) {
     this.storageManager.setBestScore(this.score);
+  }
+  if (document.getElementById("globalHighScore").innerHTML*1 < this.score) {
+  	document.getElementById("globalHighScoreForm").setAttribute("style","");
+  	document.getElementById("newHighScore").value = this.score;
   }
 
   // Clear the state when the game is over (game over only, not win)

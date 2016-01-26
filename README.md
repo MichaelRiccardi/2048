@@ -1,4 +1,8 @@
-# 2048
+# Variation on Gabriele Cirulli's "2048"
+
+This is a variation, created by Michael Riccardi, of Gabriele Cirulli's game 2048, which expands the board to a 5 x 5 grid and also introduces 0.5 and 1 tiles occasionally to make things more interesting. I hope you find this to be a fun twist on a popular game!
+
+# Information on the ORIGINAL version of 2048
 A small clone of [1024](https://play.google.com/store/apps/details?id=com.veewo.a1024), based on [Saming's 2048](http://saming.fr/p/2048/) (also a clone).
 
 Made just for fun. [Play it here!](http://gabrielecirulli.github.io/2048/)
