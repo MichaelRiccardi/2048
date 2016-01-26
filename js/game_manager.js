@@ -89,10 +89,10 @@ GameManager.prototype.actuate = function () {
   if (this.storageManager.getBestScore() < this.score) {
     this.storageManager.setBestScore(this.score);
   }
-  if (document.getElementById("globalHighScore").innerHTML*1 < this.score) {
+ /* if (document.getElementById("globalHighScore").innerHTML*1 < this.score) {
   	document.getElementById("globalHighScoreForm").setAttribute("style","");
   	document.getElementById("newHighScore").value = this.score;
-  }
+  }*/
 
   // Clear the state when the game is over (game over only, not win)
   if (this.over) {
